@@ -5,7 +5,8 @@
 }
 
 .container {
-	width: 90%;
+	width: auto;
+
 }
 
 hr {
@@ -13,7 +14,6 @@ hr {
 	height: 1px;
 	color: #333;
 	background-color: #333;
-	width: 90%;
 }
 
 .box {
