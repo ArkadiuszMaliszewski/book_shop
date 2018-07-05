@@ -44,12 +44,53 @@
 	
 					<!-- Tab panels -->
 					<div class="tab-content">
-						<div class="card">
-							<div class="tab-pane container fade in active" id="tab-1">...</div>
+					
+						<!-- Create new user -->
+						<div class="tab-pane container active" id="tab-1" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+							<form>
+								<div class="form-group">
+									<label for="newUsername">* Nazwa użytkownika</label>
+									<input required="required" type="text" class="form-control" id="newUsername" name="username" placeholder="Nazwa użytkownika"/>
+									<small class="form-text text-muted">Wprowadź nazwę użytkownika.</small>
+								</div>
+								<div class="form-group">
+									<label for="newUsername">* Email</label>
+									<input required="required" type="text" class="form-control" id="email" name="email" placeholder="Email użytkownika"/>
+									<small class="form-text text-muted">Wprowadź email.</small>
+								</div>
+								<button type="submit" class="btn btn-default">Utwórz nowe konto</button>
+							</form>
 						</div>
-							
-						<div class="tab-pane container fade" id="tab-2">...</div>
-						<div class="tab-pane container fade" id="tab-3">...</div>
+					
+						<!-- Login -->
+						<div class="tab-pane container" id="tab-2" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+							<form>
+								<div class="form-group">
+									<label for="newUsername">* Nazwa użytkownika</label>
+									<input required="required" type="text" class="form-control" id="newUsername" name="username" placeholder="Nazwa użytkownika"/>
+									<small class="form-text text-muted">Wprowadź nazwę użytkownika.</small>
+								</div>
+								<div class="form-group">
+									<label for="password">* Hasło:</label>
+									<input required="required" type="password" class="form-control" id="password" name="password" placeholder="Wprowadź hasło"/>
+									<small class="form-text text-muted">Wprowadź hasło.</small>
+								</div>
+								<button type="submit" class="btn btn-default">Zaloguj</button>
+							</form>
+						</div>
+						
+						<!-- Forget password panel -->
+						<div class="tab-pane container" id="tab-3" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+							<form>
+								<div class="form-group">
+									<label for="recoverEmail">* Email</label>
+									<input required="required" type="text" class="form-control" id="recoverEmail" name="email" placeholder="Email"/>
+									<small class="form-text text-muted">Wprowadź email podany przy rejestracji, który posłuży do zresetowania hasła.</small>
+								</div>
+								<button type="submit" class="btn btn-default">Wyślij</button>
+							</form>
+						</div>
+						
 					</div>
 					
 				</div> 
