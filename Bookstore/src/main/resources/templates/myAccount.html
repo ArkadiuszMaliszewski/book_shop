@@ -32,13 +32,13 @@
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs justify-content-center">
 						<li class="nav-item">
-							<a class="nav-link active" data-toggle="tab" href="#tab-1" style="color: grey;">Nowe konto</a>
+							<a class="nav-link" th:classappend="${classActiveNewAccount}? 'active'" data-toggle="tab" href="#tab-1" style="color: grey;">Nowe konto</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" data-toggle="tab" href="#tab-2" style="color: grey;">Zaloguj</a>
+							<a class="nav-link" th:classappend="${classActiveLogin}? 'active'" data-toggle="tab" href="#tab-2" style="color: grey;">Zaloguj</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" data-toggle="tab" href="#tab-3" style="color: grey;">Zapomniałem hasła</a>
+							<a class="nav-link" th:classappend="${classActiveForgetPassword}? 'active'" data-toggle="tab" href="#tab-3" style="color: grey;">Zapomniałem hasła</a>
 						</li>
 					</ul>
 	
@@ -46,7 +46,7 @@
 					<div class="tab-content">
 					
 						<!-- Create new user -->
-						<div class="tab-pane container active" id="tab-1" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+						<div class="tab-pane container" id="tab-1" th:classappend="${classActiveNewAccount}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
 							<form>
 								<div class="form-group">
 									<label for="newUsername">* Nazwa użytkownika</label>
@@ -63,7 +63,7 @@
 						</div>
 					
 						<!-- Login -->
-						<div class="tab-pane container" id="tab-2" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+						<div class="tab-pane container" id="tab-2" th:classappend="${classActiveLogin}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
 							<form>
 								<div class="form-group">
 									<label for="newUsername">* Nazwa użytkownika</label>
@@ -80,7 +80,7 @@
 						</div>
 						
 						<!-- Forget password panel -->
-						<div class="tab-pane container" id="tab-3" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+						<div class="tab-pane container" id="tab-3" th:classappend="${classActiveForgetPassword}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
 							<form>
 								<div class="form-group">
 									<label for="recoverEmail">* Email</label>
