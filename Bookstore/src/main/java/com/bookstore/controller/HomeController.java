@@ -3,6 +3,7 @@ package com.bookstore.controller;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -84,7 +85,19 @@ public class HomeController {
 		userRoles.add(new UserRole(user, role));
 		userService.createUser(user, userRoles);
 		
-		return "";
+		//UUID -> universal unique ID
+		String token = UUID.randomUUID().toString();
+		userService.createPasswordResetTokenForUser(user, token);
+		
+		String appUrl = "http://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+		
+		SimpleMailMessage email = mailConstructor.constructResetTokenEmail(appUrl, request.getLocale(), token, user, passowrd);
+		
+		mailSender.send(email);
+		
+		model.addAttribute("emailSent", true);
+		
+		return "myAccount";
 	}
 	
 	@RequestMapping("/newUser")
