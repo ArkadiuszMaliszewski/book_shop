@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+<head th:replace="common/header :: common-header"/>
+
+<body>
+	
+	<div th:replace="common/header :: navbar"/>
+	
+	<div></div>
+
+		<div class="container">
+	
+			<div class="row" style="margin-bottom: -100px;">
+				<div class="col-8">
+					<h2 class="section-headline"><span th:text="${}#strings.toUpperCase{user.username}}"></span></h2>
+				</div>
+				<div class="col-4">
+					<img alt="logo" src="/image/logo.jpg" class="img-fluid"/>
+				</div> 
+			</div>
+			
+<!--			<hr style="position: absolute; width: 100%; height: 6px; z-index: -1; margin-top: -80px;"/>
+			
+ 			<img alt="logo" src="/image/wood.png" class="img-fluid" style="margin-top: -75px;"/>
+ -->		
+		
+			
+			<div class="row" style="margin-top: 120px;">
+				<div class="col-12" >
+					
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs justify-content-center">
+						<li class="nav-item">
+							<a class="nav-link" th:classappend="${classActiveEdit}? 'active'" data-toggle="tab" href="#tab-1" style="color: grey;">Edytuj</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:classappend="${classActiveOrder}? 'active'" data-toggle="tab" href="#tab-2" style="color: grey;">Zamówienia</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:classappend="${classActiveBilling}? 'active'" data-toggle="tab" href="#tab-3" style="color: grey;">Dane płatności</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" th:classappend="${classActiveShipping}? 'active'" data-toggle="tab" href="#tab-4" style="color: grey;">Dane dostawy</a>
+						</li>
+					</ul>
+	
+					<!-- Tab panels -->
+					<div class="tab-content">
+					
+						<!-- Edit user information -->
+						<div class="tab-pane container" id="tab-1" th:classappend="${classActiveEdit}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+							<form th:action="${/updateUserInfo}" method="post">
+							
+								<input type="hidden" name="id" th:value="${user.id}"/>
+								<div class="bg-info" th:if="${updateUserInfo}">Dane zaktualizowane</div>
+								
+								<div class="form-group">
+									<label for="firstName">Imię</label>
+									<input required="required" type="text" class="form-control" id="firstName" name="firstName" th:value="${user.firstName}" placeholder="Imię"/>
+									<small class="form-text text-muted">Wprowadź imię.</small>
+								</div>
+								
+								<div class="form-group">
+									<label for="lastName">Nazwisko</label>
+									<input required="required" type="text" class="form-control" id="lastName" name="lastName" th:value="${user.lastName}" placeholder="Nazwisko"/>
+									<small class="form-text text-muted">Wprowadź nazwisko.</small>
+								</div>
+								
+								<div class="form-group">
+									<label for="userName">Nazwa użytkownika</label>
+									<input type="text" class="form-control" id="userName" name="userName" th:value="${user.userName}" placeholder="Nazwa użytkownika"/>
+									<small class="form-text text-muted">Nazwa użytkownika.</small>
+								</div>
+								
+								<div class="form-group">
+									<label for="currentPassword">Aktualne hasło</label>
+									<input type="text" class="form-control" id="currentPassword" name="currentPassword" th:value="${currentPassword}" placeholder="Aktualne hasło"/>
+									<small class="form-text text-muted">Wprowadź aktualne hasło, aby zmienić email lub hasło.</small>
+								</div>
+								
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="text" class="form-control" id="email" name="email" th:value="${user.email}" placeholder="Aktualny email"/>
+									<small class="form-text text-muted">Wprowadź aktualny email.</small>
+								</div>
+
+								<div class="form-group">
+									<label for="txtNewPassowrd">Nowe hasło</label>
+									<input type="password" class="form-control" id="txtNewPassowrd" name="newPassword" placeholder="Wprowadź nowe hasło"/>
+									<small class="form-text text-muted">Wprowadź nowe hasło.</small>
+								</div>
+								
+								<div class="form-group">
+									<label for="txtConfirmPassowrd">Powtiwerdź nowe hasło</label>
+									<input type="password" class="form-control" id="txtConfirmPassowrd" placeholder="Wprowadź nowe hasło"/>
+									<small class="form-text text-muted">Potwierdź nowe hasło.</small>
+								</div>
+								
+								<button type="submit" class="btn btn-default">Zapisz</button> 
+							</form>
+						</div>
+					
+						<!-- Login -->
+						<div class="tab-pane container" id="tab-2" th:classappend="${classActiveLogin}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+							<form>
+								<div class="form-group">
+									<label for="newUsername">* Nazwa użytkownika</label>
+									<input required="required" type="text" class="form-control" id="newUsername" name="username" placeholder="Nazwa użytkownika"/>
+									<small class="form-text text-muted">Wprowadź nazwę użytkownika.</small>
+								</div>
+								<div class="form-group">
+									<label for="password">* Hasło:</label>
+									<input required="required" type="password" class="form-control" id="password" name="password" placeholder="Wprowadź hasło"/>
+									<small class="form-text text-muted">Wprowadź hasło.</small>
+								</div>
+								<button type="submit" class="btn btn-default">Zaloguj</button>
+							</form>
+						</div>
+						
+						<!-- Forget password panel -->
+						<div class="tab-pane container" id="tab-3" th:classappend="${classActiveForgetPassword}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+							<form>
+								<div class="form-group">
+									<label for="recoverEmail">* Email</label>
+									<input required="required" type="text" class="form-control" id="recoverEmail" name="email" placeholder="Email"/>
+									<small class="form-text text-muted">Wprowadź email podany przy rejestracji, który posłuży do zresetowania hasła.</small>
+								</div>
+								<button type="submit" class="btn btn-default">Wyślij</button>
+							</form>
+						</div>
+						
+					</div>
+					
+				</div> 
+
+			</div>
+			
+			
+			
+		</div>  
+		<!--container end  -->	
+	
+
+
+	<!-- Bootstrap core JavaScript -->
+	<div th:replace="common/header :: body-bottom-scripts"/>
+
+</body>
+</html>
