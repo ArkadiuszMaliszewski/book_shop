@@ -27,13 +27,14 @@ import com.bookstore.domain.security.Role;
 import com.bookstore.domain.security.UserRole;
 import com.bookstore.service.UserService;
 import com.bookstore.service.impl.UserSecurityService;
+import com.bookstore.utility.MailConstructor;
 import com.bookstore.utility.SecurityUtility;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private JavaMailSender mainSender;
+	private JavaMailSender mailSender;
 	
 	@Autowired
 	private MailConstructor mailConstructor;

@@ -15,7 +15,7 @@ public class MailConstructor {
 	@Autowired
 	private Environment env;
 	
-	public SimpleMailMessage constructorResetToke
+	public SimpleMailMessage constructResetTokenEmail
 			(String contextPath,
 			Locale locale,
 			String token,
