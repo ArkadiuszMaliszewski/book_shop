@@ -136,6 +136,8 @@ public class HomeController {
 		
 		//1,2,3 -> makes sure that the logged in session is assigned for that one user
 		
+		model.addAttribute("user", user);
+		
 		model.addAttribute("classActiveEdit", true);
 		return "myProfile";
 	}

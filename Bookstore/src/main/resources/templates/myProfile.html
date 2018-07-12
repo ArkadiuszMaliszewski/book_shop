@@ -13,7 +13,7 @@
 	
 			<div class="row" style="margin-bottom: -100px;">
 				<div class="col-8">
-					<h2 class="section-headline"><span th:text="${}#strings.toUpperCase{user.username}}"></span></h2>
+					<h2 class="section-headline"><span th:text="${#strings.toUpperCase(user.username)}"></span></h2>
 				</div>
 				<div class="col-4">
 					<img alt="logo" src="/image/logo.jpg" class="img-fluid"/>
@@ -50,7 +50,7 @@
 					
 						<!-- Edit user information -->
 						<div class="tab-pane container" id="tab-1" th:classappend="${classActiveEdit}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
-							<form th:action="${/updateUserInfo}" method="post">
+							<form th:action="@{/updateUserInfo}" method="post">
 							
 								<input type="hidden" name="id" th:value="${user.id}"/>
 								<div class="bg-info" th:if="${updateUserInfo}">Dane zaktualizowane</div>
@@ -69,7 +69,7 @@
 								
 								<div class="form-group">
 									<label for="userName">Nazwa użytkownika</label>
-									<input type="text" class="form-control" id="userName" name="userName" th:value="${user.userName}" placeholder="Nazwa użytkownika"/>
+									<input type="text" class="form-control" id="userName" name="username" th:value="${user.username}" placeholder="Nazwa użytkownika"/>
 									<small class="form-text text-muted">Nazwa użytkownika.</small>
 								</div>
 								
@@ -101,7 +101,8 @@
 							</form>
 						</div>
 					
-<!-- 						Login
+<!-- 					
+						Login
 						<div class="tab-pane container" id="tab-2" th:classappend="${classActiveLogin}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
 							<form>
 								<div class="form-group">
@@ -128,7 +129,8 @@
 								</div>
 								<button type="submit" class="btn btn-default">Wyślij</button>
 							</form>
-						</div> -->
+						</div> 
+-->
 						
 					</div>
 					
