@@ -22,7 +22,7 @@ public class MailConstructor {
 			User user,
 			String password) {
 		
-		String url = contextPath = "/newUser?token="+token;
+		String url = contextPath + "/newUser?token="+token;
 		String message = "\nProszę kliknij w ten link aby zweryfikować email i edytować pozostałe informacje. Twhoje hasło to: \n"+password;
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setTo(user.getEmail());

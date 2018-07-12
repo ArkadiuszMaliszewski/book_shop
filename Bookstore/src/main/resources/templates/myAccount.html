@@ -47,7 +47,10 @@
 					
 						<!-- Create new user -->
 						<div class="tab-pane container" id="tab-1" th:classappend="${classActiveNewAccount}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
-							<form>
+							<div class="alert alert-info" th:if="${emailSent}">
+								Na podany przez Ciebie email została wysłana wiadomość. Potwerdź email i uaktualnij hasło.
+							</div>
+							<form th:action="@{/newUser}" method="post">
 								<div class="form-group">
 									<label for="newUsername">* Nazwa użytkownika</label>
 									<input required="required" type="text" class="form-control" id="newUsername" name="username" placeholder="Nazwa użytkownika"/>
