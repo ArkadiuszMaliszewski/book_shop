@@ -35,14 +35,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			"/",
 			"/myAccount",
 			"/newUser",
-			"forgetPassword"
+			"forgetPassword",
+			"/login",
+			"/fonts/**"
 	};
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests().
-		/*	antMatchers("/**").*/
 			antMatchers(PUBLIC_MATCHERS).
 			permitAll().anyRequest().authenticated();
 		
