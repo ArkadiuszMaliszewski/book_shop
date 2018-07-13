@@ -89,14 +89,16 @@
 						
 						<!-- Forget password panel -->
 						<div class="tab-pane container" id="tab-3" th:classappend="${classActiveForgetPassword}? 'in active'" style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
-							<form th:action="@{/forgetPassword}" method="post">
-								<div class="form-group">
-									<label for="recoverEmail">* Email</label>
-									<input required="required" type="text" class="form-control" id="recoverEmail" name="email" placeholder="Email"/>
-									<small class="form-text text-muted">Wprowadź email podany przy rejestracji, który posłuży do zresetowania hasła.</small>
-								</div>
-								<button type="submit" class="btn btn-secondary">Wyślij</button>
-							</form>
+							<div th:if="${emailNotExist}" class="alert alert-danger">Podany email nie istnieje.</div>
+							<div th:if="${forgetPasswordEmailSent}" class="alert alert-success">Wysłano email.</div>							
+								<form th:action="@{/forgetPassword}" method="post">
+									<div class="form-group">
+										<label for="recoverEmail">* Email</label>
+										<input required="required" type="text" class="form-control" id="recoverEmail" name="email" placeholder="Email"/>
+										<small class="form-text text-muted">Wprowadź email podany przy rejestracji, który posłuży do zresetowania hasła.</small>
+									</div>
+									<button type="submit" class="btn btn-secondary">Wyślij</button>
+								</form>
 						</div>
 						
 					</div>
