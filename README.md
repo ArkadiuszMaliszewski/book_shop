@@ -1,6 +1,6 @@
 # Bookshop
 
-# Application description:
+## Application description:
 Application consist both of administration panel and front-end Web-app. It was created using almost all technologies contained in the curriculum of Coders Lab course (with the main focus on  Spring and Hibernate frameworks).
 
 ## How to run application:
