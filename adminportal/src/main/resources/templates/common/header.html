@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Book store</title>
+	<title>Admin Portal</title>
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<!-- Custom styles for this template -->
@@ -25,7 +25,7 @@
 	
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home
+					<li class="nav-item active"><a class="nav-link" th:href="@{/}">Admin Portal
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
@@ -34,15 +34,11 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> Menu </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Przeglądaj książki</a>
-							<a class="dropdown-item" href="#">Godziny otwarcia &#38; dojazd</a>
-							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">FAQ</a>
+							<a class="dropdown-item" href="#">Dodaj książkę</a>
+							<a class="dropdown-item" href="#">Lista książek</a>
 						</div>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="#">Koszyk</a></li>
 					<li class="nav-item"><a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">Moje konto</a></li>
-					<li class="nav-item"><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/myProfile}">Moje konto</a></li>
 					<li class="nav-item"><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">Wyloguj</a></li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
