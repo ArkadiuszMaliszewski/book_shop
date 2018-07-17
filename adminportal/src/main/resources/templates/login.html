@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+<head th:replace="common/header :: common-header"/>
+
+<body>
+	
+	<div class="container">
+		
+		<h5 class="center-block">Witaj w portalu Administratora BookStore.</h5>
+	
+		<hr/>
+	
+		<div class="row">
+			<div class="col-4">
+				<img th:src="@{/image/logo.jpg}" class="img-fluid" alt="logo"/>
+			</div>
+			<div class="col-6">
+				<div class="bg-danger" th:if="${param.error}">
+					Nieprawidłowa nazwa użytkownika lub hasło.
+				</div>
+				<div class="bg-danger" th:if="${param.logout}">
+					Zostałeś wylogowany.
+				</div>
+				<div style="border-radius: 5px; background-color: #f2f2f2; margin-top:10px; padding: 20px;">
+					<form action="form-signin" th:action="@{/login}" method="post">
+						<h2 class="form-signin-heading">Zaloguj się:</h2>
+						<div class="form-group">
+							<label for="username" class="sr-only">Nazwa użytkownika</label> 
+							<input required="required" type="text" class="form-control"
+								id="username" name="username" placeholder="Nazwa użytkownika" autofocus="autofocus"/>
+							<small class="form-text text-muted">Wprowadź nazwę użytkownika.</small>
+						</div>
+						<div class="form-group">
+							<label for="password" class="sr-only">Hasło:</label>
+							<input required="required"
+								type="password" class="form-control" id="password"
+								name="password" placeholder="Wprowadź hasło" /> 
+								<small class="form-text text-muted">Wprowadź hasło.</small>
+						</div>
+						<button type="submit" class="btn btn-secondary">Zaloguj</button>
+					</form>
+				</div>
+			</div>
+			<div class="col-2"></div>	
+		</div>
+		
+	</div><!-- End of container -->
+
+	<!-- Bootstrap core JavaScript -->
+	<div th:replace="common/header :: body-bottom-scripts"/>
+
+</body>
+</html>
