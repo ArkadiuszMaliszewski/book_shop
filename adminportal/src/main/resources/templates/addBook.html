@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1000/xhtml">
+
+<head th:replace="common/header :: common-header"/>
+
+<body>
+	
+	<div th:replace="common/header :: navbar"/>
+
+
+	<div class="container">
+		<form th:action="@{/book/add}" method="post" enctype="multipart/form-data">
+		
+			<fieldset>
+				<legend class="center-block">Dane nowej książki</legend>
+				<span style="font-size:small"> * jest wymagane</span>
+				
+				<div class="form-group">
+					<label for="title">* Tytuł</label>
+					<input required="required" type="text" class="form-control" id="title" th:value="${book.title}" placeholder="Tytuł"/>
+					<span class="help-block">Tytuł książki</span>
+				</div>
+				
+				<div class="form-group">
+					<label for="author">* Autor</label>
+					<input required="required" type="text" class="form-control" id="author" th:value="${book.author}" placeholder="Autor"/>
+					<span class="help-block">Autor książki</span>
+				</div>
+				
+				<div class="form-group">
+					<label for="publisher">* Wydawca</label>
+					<input required="required" type="text" class="form-control" id="publisher" th:value="${book.publisher}" placeholder="Wydawca"/>
+					<span class="help-block">Wydawca książki</span>
+				</div>
+				
+			</fieldset>
+				
+			
+			<button type="submit" class="btn btn-secondary">Zapisz</button> 
+		</form>
+	</div>
+	
+
+
+	<!-- Bootstrap core JavaScript -->
+	<div th:replace="common/header :: body-bottom-scripts"/>
+
+</body>
+</html>
