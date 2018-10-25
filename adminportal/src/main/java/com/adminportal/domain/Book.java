@@ -37,6 +37,8 @@ public class Book {
 	
 	private int isbn;
 	
+	private double shippingWeight;
+	
 	private double listPrice;
 	
 	private double ourPrice;
@@ -134,6 +136,16 @@ public class Book {
 
 	public void setIsbn(int isbn) {
 		this.isbn = isbn;
+	}
+	
+	
+
+	public double getShippingWeight() {
+		return shippingWeight;
+	}
+
+	public void setShippingWeight(double shippingWeight) {
+		this.shippingWeight = shippingWeight;
 	}
 
 	public double getListPrice() {
