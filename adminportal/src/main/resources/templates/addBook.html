@@ -28,9 +28,40 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="publisher">* Wydawca</label>
-					<input required="required" type="text" class="form-control" id="publisher" th:value="${book.publisher}" placeholder="Wydawca"/>
+					<label for="publisher">Wydawca</label>
+					<input type="text" class="form-control" id="publisher" th:value="${book.publisher}" placeholder="Wydawca"/>
 					<span class="help-block">Wydawca książki</span>
+				</div>
+				
+				<div class="form-group">
+					<label for="publicationDate">Data wydania</label>
+					<input type="text" class="form-control" id="publicationDate" th:value="${book.publicationDate}" placeholder="Data wydania"/>
+					<span class="help-block">Data wydania</span>
+				</div>
+				
+				<div class="form-group">
+					<label for="language">Język</label>
+					<div>
+						<select class="form-control" th:value="${book.language}" id="language">
+							<option value="polish">Polski</option>
+							<option value="english">Angielski</option>
+							<option value="spanish">Hiszpański</option>
+							<option value="italian">Włoski</option>
+						</select>
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="category">* Kategoria</label>
+					<div>
+						<select class="form-control" th:value="${book.catogory}" id="category">
+							<option value="" slected="selected" disabled="disabled">Wybierz kategorię</option>
+							<option value="Criminal" th:slected="(${book.category}=='Criminal')">Kryminał</option>
+							<option value="Action" th:slected="(${book.category}=='Action')">Sensacja</option>
+							<option value="Management" th:slected="(${book.category}=='Management')">Zarządzanie</option>
+							<option value="Fiction" th:slected="(${book.category}=='Fiction')">Fikcja</option>
+						</select>
+					</div>
 				</div>
 				
 			</fieldset>
