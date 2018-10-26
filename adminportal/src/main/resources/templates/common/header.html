@@ -34,8 +34,8 @@
 							role="button" data-toggle="dropdown" aria-haspopup="true"
 							aria-expanded="false"> Menu </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="book/add">Dodaj książkę</a>
-							<a class="dropdown-item" href="#">Lista książek</a>
+							<a class="dropdown-item" th:href="@{/book/add}">Dodaj książkę</a>
+							<a class="dropdown-item" th:href="@{/book/bookList}">Lista książek</a>
 						</div>
 					</li>
 					<li class="nav-item"><a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}">Wyloguj</a></li>
