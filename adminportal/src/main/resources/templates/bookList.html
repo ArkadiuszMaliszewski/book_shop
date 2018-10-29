@@ -8,8 +8,36 @@
 	<div th:replace="common/header :: navbar"/>
 
 
-	<h1>Book List Page</h1>
-	
+	<div class="container">
+		<table class="table table-bordered table-hover table-striped" id="bookListTable">
+			<thead>
+				<tr>
+					<th scope="col">Tytuł</th>
+					<th scope="col">Autor</th>
+					<th scope="col">Kategoria</th>
+					<th scope="col">Cena katalogowa</th>
+					<th scope="col">Cena w naszej księgarni</th>
+					<th scope="col">Dostępność</th>
+					<th scope="col">Operacje</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="book : ${bookList}">
+<!-- 					<td>
+						<input hidden="hidden" name="id" th:value="${book.id}">
+					</td> -->
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.author}"></td>
+					<td th:text="${book.category}"></td>
+					<td th:text="${book.listPrice}"></td>
+					<td th:text="${book.ourPrice}"></td>
+					<td th:text="${book.active}"></td>
+					<td>Usuń</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
 
 
 	<!-- Bootstrap core JavaScript -->
